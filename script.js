@@ -1,4 +1,7 @@
 var currentPlayer = "X"
+var punkteX = 0
+var punkteO = 0
+
 
 function clickHandler(event) {
     console.log("clickHandler start")
@@ -17,12 +20,21 @@ function clickHandler(event) {
         if (gewinner){
             console.log(gewinner + " hat gewonnen ")
             resetGame()
-            document.getElementById("status").innerHTML = gewinner + " hat gewonnen"     // X || O
+            document.getElementById("status").innerHTML= gewinner + " hat gewonnen "
+            if (gewinner == "X") {
+                punkteX += 1
+            }
+            if (gewinner == "O"){
+                punkteO += 1
+            }
+            document.getElementById("punkte").innerHTML = "  X hat  " + punkteX+"  / O hat  " + punkteO ;
         }
+
 
 
         var spielVorbei = gameOver ( )
         if (spielVorbei){
+            document.getElementById("status").innerHTML = " unentschieden "
             resetGame()
         }
 
@@ -43,9 +55,6 @@ function gameOver( ) {
 }
 function IstDasFeldLeer(field){
     return field.innerHTML == ""
-
-
-
 }
 function resetGame( ){
     const fields = [...(document.getElementById("gameBoard").children)]

@@ -44,8 +44,15 @@ div[data-selected="O"] {
     padding: 0;
     background: white;
     text-align: center;
-    line-height: 40px;
+    line-height: 33px;
     font-size: 33px;
 
 
+}
+#status{
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    text-align: center;
+    font-size: 10px;
 }
